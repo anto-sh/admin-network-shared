@@ -1,11 +1,7 @@
 {
   "name": "@anto-sh/admin-network-shared",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "description": "Common code shared between admin frontend and backedn - types, DTOs, constants, etc.",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anto-sh/admin-network-shared.git"
@@ -15,5 +11,30 @@
   "bugs": {
     "url": "https://github.com/anto-sh/admin-network-shared/issues"
   },
-  "homepage": "https://github.com/anto-sh/admin-network-shared#readme"
+  "homepage": "https://github.com/anto-sh/admin-network-shared#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
