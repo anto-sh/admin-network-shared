@@ -1,6 +1,6 @@
 {
   "name": "@anto-sh/admin-network-shared",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Common code shared between admin frontend and backedn - types, DTOs, constants, etc.",
   "repository": {
     "type": "git",
