@@ -1,7 +1,6 @@
 # @anto-sh/admin-network-shared
 
-Shared response envelopes, network message codes, and parameter types used by `admin-frontend` and `admin-backend`.
-
+Shared TypeScript types and constants for API responses, messages, and validation.
 ## Repositories
 
 - Shared package: [anto-sh/admin-network-shared](https://github.com/anto-sh/admin-network-shared).
@@ -13,10 +12,34 @@ Shared response envelopes, network message codes, and parameter types used by `a
 - Shared principles: frontend `manifesto.md`, normally at `../admin-frontend/manifesto.md`.
 - API integration: frontend `DOCS.md`, section 5, normally at `../admin-frontend/DOCS.md`.
 
+## Installation
+
+```sh
+npm install @anto-sh/admin-network-shared
+```
+
+The package provides CommonJS, ESM, and TypeScript declarations from `dist`.
+
 ## Development
 
 ```sh
 npm run build
 ```
 
-The build produces CommonJS, ESM, and TypeScript declarations in `dist`.
+Use `npm run dev` to rebuild on changes. Package imports resolve to the generated `dist` files.
+
+## Contracts
+
+### API responses
+
+[`ApiResponse<T>`](src/network-api-response.ts) is a response envelope: `status` is `success` or `error`, `message` holds a network message or `undefined`, and optional `data` and `timestamp` hold the payload and response timestamp.
+
+### Network messages
+
+`NetworkMessage` contains a `code` and optional `params`. [`NETWORK_MESSAGE_CODES`](src/network-message-codes.ts) catalogs common errors, uploads, and entity events. [`NetworkMessageParamsFor<C>`](src/network-message-params.ts) describes parameters for a chosen code. Consumers supply the display text.
+
+### Validation errors
+
+[`ValidationErrorData`](src/validation.ts) contains a `validationErrors` array. Each `ValidationIssue` identifies the field through `path`, the problem through `code`, and any required details through `params`.
+
+Paths contain field names and numeric array indices; `[]` means the whole request. `VALIDATION_CODES` lists the supported problems, and TypeScript checks the parameters required by each code.

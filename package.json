@@ -1,6 +1,6 @@
 {
   "name": "@anto-sh/admin-network-shared",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Common code shared between admin frontend and backedn - types, DTOs, constants, etc.",
   "repository": {
     "type": "git",
@@ -17,9 +17,9 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
